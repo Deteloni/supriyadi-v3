@@ -37,7 +37,7 @@ const Hero: React.FC<HeroProps> = ({ onNavClick }) => {
           </div>
         </div>
         <div className="flex-shrink-0">
-            <img src="supri.png" alt="Supriyadi's profile" className="rounded-full w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 object-cover border-4 border-slate-700 shadow-lg"/>
+            <img src="erp.png" alt="Supriyadi's profile" className="rounded-full w-64 h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 object-cover border-4 border-slate-700 shadow-lg"/>
         </div>
       </div>
     </section>
