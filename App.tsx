@@ -1,5 +1,6 @@
 
 import React, { useState, useMemo } from 'react';
+import Background from './components/Background';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import KeyAchievements from './components/KeyAchievements';
@@ -39,26 +40,50 @@ const App: React.FC = () => {
   const currentView = useMemo(() => renderView(), [activeView]);
 
   return (
-    <div className="min-h-screen bg-slate-900 flex flex-col">
-      <Header activeView={activeView} onNavClick={setActiveView} />
-      <main className="container mx-auto max-w-5xl px-4 py-8 md:py-16 flex-grow">
-        <div key={activeView} className="animate-fade-in">
-          {currentView}
-        </div>
-      </main>
-      <Footer />
+    <div className="relative isolate flex min-h-screen flex-col overflow-hidden">
+      <Background />
+      <div className="relative z-10 flex flex-grow flex-col">
+        <Header activeView={activeView} onNavClick={setActiveView} />
+        <main className="container mx-auto max-w-5xl px-4 py-8 md:py-16 flex-grow">
+          <div key={activeView} className="animate-section">
+            {currentView}
+          </div>
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 };
 
-// Simple fade-in animation
+// Ambient background + section entrance animations
 const animationStyle = `
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(14px); }
   to { opacity: 1; transform: translateY(0); }
 }
-.animate-fade-in {
-  animation: fadeIn 0.5s ease-in-out;
+.animate-section {
+  animation: fadeInUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes ambientA {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(8%, 5%, 0) scale(1.12); }
+}
+@keyframes ambientB {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-6%, -7%, 0) scale(1.1); }
+}
+@keyframes ambientC {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(4%, -5%, 0) scale(1.08); }
+}
+.ambient-orb-a { animation: ambientA 24s ease-in-out infinite; }
+.ambient-orb-b { animation: ambientB 30s ease-in-out infinite; }
+.ambient-orb-c { animation: ambientC 28s ease-in-out infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .animate-section,
+  .ambient-orb-a,
+  .ambient-orb-b,
+  .ambient-orb-c { animation: none !important; }
 }
 `;
 

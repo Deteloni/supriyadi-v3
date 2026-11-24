@@ -58,8 +58,11 @@ const Contact: React.FC = () => {
   return (
     <section className="text-center">
       <h2 className="text-3xl font-bold text-white mb-4">Info Kontak</h2>
-      <p className="text-slate-400 mb-8 max-w-lg mx-auto">
-        Saya terbuka untuk diskusi, kolaborasi, atau peluang baru. Jangan ragu untuk menghubungi saya.
+      <p className="text-slate-400 mb-4 max-w-lg mx-auto">
+        Saya terbuka untuk diskusi, kolaborasi, atau peluang baru di bidang ERP integration, data engineering, network &amp; security, dan smart manufacturing.
+      </p>
+      <p className="text-sm text-emerald-400 mb-8 font-medium">
+        Tersedia untuk konsultasi &amp; proyek baru
       </p>
       <div className="flex flex-wrap justify-center items-center gap-4">
         {contactLinks.map((link) => (

@@ -1,19 +1,17 @@
-<<<<<<< HEAD
-# Run and deploy your AI Studio app
+# Supriyadi — Professional Portfolio
 
-This contains everything you need to run your app locally.
+Portofolio pribadi berbasis React + Vite + Tailwind CSS.
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
+**Prerequisites:** Node.js
 
+1. Install dependencies: `npm install`
+2. Jalankan aplikasi: `npm run dev`
+3. Build produksi: `npm run build`
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
-=======
-# supriyadi-v3
-portofolio
->>>>>>> 55181f10378bcdd0c4a92cc619310ebed0358974
+## Struktur Konten
+
+Seluruh konten situs (pencapaian, keahlian, pengalaman, proyek, pendidikan, sertifikat, kontak) dikelola terpusat di `constants.tsx`.
+
+Preview proyek berada di `public/preview-*.png`, dan file sertifikat di `public/certificates/`.
